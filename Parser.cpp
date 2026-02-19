@@ -19,39 +19,49 @@ Parser::Parser(int argc, char *argv[])
             cout << "-f [cowname] to change the cow source" << endl;
             cout << "-c [cloudname] to change the cloud source" << endl;
             cout << "-T [1 or 2 chars] to set a tongue" << endl;
-            cout << "-s to change weather to snow" << endl;
-            cout << "-r to change weather to rain" << endl;
-	          cout << "-ks to see cringe sun" << endl;
-            cout << "-m to change weather to money" << endl;
+            cout << "-snow to change weather to snow (*)" << endl;
+            cout << "-rain to change weather to rain (.)" << endl;
+	        cout << "-s [string] to change sun" << endl;
+            cout << "-b to change background to (&)" << endl;
+            cout << "-m to change background to ($)" << endl;
             cout << "-l to see list of all cows and clouds" << endl;
             exit(0);
         }
+
         if (tmp == "-f")
         {
             arg++;
             cowsource = argv[arg];
             flags.cowsource = true;
         }
+
         else if (tmp == "-c")
         {
             arg++;
             cloudsource = argv[arg];
             flags.cloudsource = true;
         }
+
         else if (tmp == "-T")
         {
             arg++;
             tongue = argv[arg];
             flags.tongue = true;
         }
-        else if (tmp == "-s")
+
+        else if (tmp == "-snow")
             flags.snow = true;
-	else if (tmp == "-ks")
-	{
-            flags.ks = true;
-	}
-        else if (tmp == "-r")
+
+        else if (tmp == "-rain")
             flags.rain = true;
+
+        else if (tmp == "-s")
+        {
+            //flags.sun = true;
+            arg++;
+            sunsource = argv[arg];
+            flags.sun = true;
+        }
             
         else if (tmp == "-b")
             flags.background = true;
@@ -130,14 +140,12 @@ char Parser::getFill()
         return ' ';
 }
 
-char Parser::getSun()
+string Parser::getSun()
 {
-    if (flags.ks)
-    {
-	return ')';
-    }
-    else 
-	return ' ';
+    if (flags.sun)
+        return sunsource;
+    else
+        return ">O<";
 }
 
 string Parser::getMessage()

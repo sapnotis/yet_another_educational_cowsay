@@ -15,7 +15,7 @@ class Field {
     Cloud cloud;
     string tongue;
     char fill;
-    char sun; 
+    string sun; 
 
 public:
 
