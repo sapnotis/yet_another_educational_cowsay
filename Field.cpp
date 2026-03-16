@@ -22,23 +22,26 @@ void Field::print()
         for (int i = 0; i < x - sun.length(); i++)
             cout << fill;
     }
+
     else {
         for (int i = 0; i < x; i++)
             cout << fill;
     }
+
     cout << endl;
     for (int i = 0; i < x; i++)
         cout << fill;
-    cout << endl;
 
+    cout << endl;
     cloud.print(2, fill, x);
     cow.print(2, fill, x);
-
-    for (int i = 0; i < x; i++)
-        cout << fill;
-    cout << endl;
     
     for (int i = 0; i < x; i++)
         cout << fill;
+
+    cout << endl;
+    for (int i = 0; i < x; i++)
+        cout << fill;
+
     cout << endl;
 }
