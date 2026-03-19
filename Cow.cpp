@@ -4,7 +4,7 @@
 using std::cout;
 using std::endl;
 
-Cow::Cow(string tongue, string fname) : ASCIIPicture("./cows/" + fname + ".cow"), tongue(tongue)
+Cow::Cow(string tongue, string fname) : ASCIIPicture("cows/" + fname + ".cow"), tongue(tongue)
 { }
 
 Cow::~Cow()

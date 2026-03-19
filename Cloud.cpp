@@ -4,9 +4,7 @@
 using std::cout;
 using std::endl;
 
-Cloud::Cloud(string message, string fname) : ASCIIPicture("./clouds/" + fname + ".cloud"), message(message)
-{
-}
+Cloud::Cloud(string message, string fname) : ASCIIPicture("clouds/" + fname + ".cloud"), message(message) { }
 
 Cloud::~Cloud() {}
 

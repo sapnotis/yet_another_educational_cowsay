@@ -1,6 +1,7 @@
 #include "ASCIIPicture.hpp"
 
 #include <fstream>
+#include <filesystem>
 using std::ifstream;
 #include <iostream>
 using std::cout;
@@ -8,12 +9,19 @@ using std::endl;
 
 ASCIIPicture::ASCIIPicture(string fname)
 {
+    if ( std::filesystem::exists("./" + fname) )
+        fname = "./" + fname;
+    else
+        fname = "/usr/share/alt-cowsay/" + fname;
+
     ifstream file(fname);
+    
     if (!file.is_open())
     {
-        cout << "Picture " << fname << " is nowhere to be found." << endl;
+        cout << "Couldn't find " + fname << endl;
         exit(0);
     }
+
     char buffer[200];
     while (file.getline(buffer, 200, '\n'))
     {
